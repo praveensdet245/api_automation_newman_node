@@ -1,0 +1,15 @@
+{
+	"id": "e6d3f48e-bb65-4ca2-84d4-d9199ab67a1a",
+	"values": [
+		{
+			"key": "sample_host",
+			"value": "api.restful-api.dev",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2024-10-22T16:17:29.338Z",
+	"_postman_exported_using": "Postman/11.10.1"
+}

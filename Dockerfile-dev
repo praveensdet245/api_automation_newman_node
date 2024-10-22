@@ -1,0 +1,23 @@
+FROM node:18.7.0-alpine
+
+# Set environment variables
+ENV ENV=dev
+ENV NODE_OPTIONS=--dns-result-order=ipv4first
+ENV HOST=docker
+
+WORKDIR /app
+COPY . .
+
+COPY package*.json ./
+
+RUN npm install
+
+RUN chmod -R 777 /app
+
+# Set the working directory to the gulpfile.js folder
+WORKDIR /app
+
+ARG TASK_NAME
+ENV TASK_NAME=$TASK_NAME
+
+CMD /bin/sh -c 'if [ -n "$TASK_NAME" ]; then npx gulp runSpecificTask --gulpfile gulpfile.js/index.js; else npx gulp --gulpfile gulpfile.js/index.js; fi'
